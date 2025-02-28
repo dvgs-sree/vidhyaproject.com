@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Example</title>
     <style>
-       body {
+         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -147,14 +147,14 @@
     </form>
 </div>
 
-<div class="button-container" id="buttonContainer">
+<div class="button-container" id="buttonContainer" style="display: none;">
     <button onclick="viewStudentDetails()">Student Details</button>
     <button onclick="viewSemesterDetails()">Semester Details</button>
     <button onclick="viewMidDetails()">Mid Details</button>
 </div>
 
 <!-- Options for Student Details -->
-<div class="options-container" id="optionsContainer">
+<div class="options-container" id="optionsContainer" style="display: none;">
     <h3>Select Branch and Year</h3>
     <select id="branch">
         <option value="">Select Branch</option>
@@ -262,26 +262,23 @@
         document.getElementById("semesterOptionsContainer").style.display = "none";
     }
 
-
-    function submitStudentDetail() {
-        const Branch = document.getElementById("branch").value;
-        const Year = document.getElementById("year").value;
+    // Submit Student Details
+    function submitStudentDetails() {
+        const branch = document.getElementById("branch").value;
+        const year = document.getElementById("year").value;
         
-        if(branch === "AIML" || year === "3rd"){
-          const googlesheeturl = "https://docs.google.com/spreadsheets/d/1UNWSCHUeJYVhkDWpRB0ryG1tKW5FX1DwIQZ7n1YFPE0/edit?gid=0#gid=0";
-        window.open(googlesheeturl, "_blank";)
-        }
-        else{
-              if(branch === "CSE" || year === "3rd"){
-          const googlesheeturl = "https://docs.google.com/spreadsheets/d/1dyrSR5c8n0EZM9MtrJhAMj9_6J_4d7SQzmogn2ci14o/edit?pli=1&gid=0#gid=0";
-           window.open(googlesheeturl, "_blank";)
-           } else{
-               alert("you selected : branch - " + branch + " , year -" +year)
-           }
+        if (branch === "AIML" && year === "3") {
+            const googlesheeturl = "https://docs.google.com/spreadsheets/d/1UNWSCHUeJYVhkDWpRB0ryG1tKW5FX1DwIQZ7n1YFPE0/edit?gid=0#gid=0";
+            window.open(googlesheeturl, "_blank");
+        } else if (branch === "CSE" && year === "3") {
+            const googlesheeturl = "https://docs.google.com/spreadsheets/d/1dyrSR5c8n0EZM9MtrJhAMj9_6J_4d7SQzmogn2ci14o/edit?pli=1&gid=0#gid=0";
+            window.open(googlesheeturl, "_blank");
+        } else {
+            alert("You selected: Branch - " + branch + ", Year - " + year);
         }
     }
 
-    // Simulate action after selecting Branch, Year, and Semester for Semester Details
+    // Submit Semester Details
     function submitSemesterDetails() {
         const branch = document.getElementById("semesterBranch").value;
         const year = document.getElementById("semesterYear").value;
@@ -297,10 +294,34 @@
             } else {
                 alert("You selected: Branch - " + branch + ", Year - " + year + ", Semester - " + semester);
             }
+            if (branch === "CSE" && year === "3" && semester === "1") {
+                const googleSheetsUrl = "https://docs.google.com/spreadsheets/d/13MTMOzdL4xAItLu2LTy6Drx6kRdeyjbKSXavXbASkfM/edit?gid=0#gid=0";
+                window.open(googleSheetsUrl, "_blank");
+            } else {
+                alert("You selected: Branch - " + branch + ", Year - " + year + ", Semester - " + semester);
+            }
+            
+            
+            if (branch === "AIML" && year === "3" && semester === "2") {
+                const googleSheetsUrl = "https://docs.google.com/spreadsheets/d/1QW0R7fbRGVkkxQvJNXiV2T7QZwfSQhDloaFbqBGNjtI/edit?gid=0#gid=0";
+                window.open(googleSheetsUrl, "_blank");
+            } else {
+                alert("You selected: Branch - " + branch + ", Year - " + year + ", Semester - " + semester);
+            }
+            if (branch === "CSE" && year === "3" && semester === "2") {
+                const googleSheetsUrl = "https://docs.google.com/spreadsheets/d/1ElZbWnaiD2lzub2DkF6GFf2tXZMe55jFJUASB9NwmFk/edit?gid=0#gid=0";
+                window.open(googleSheetsUrl, "_blank");
+            } else {
+                alert("You selected: Branch - " + branch + ", Year - " + year + ", Semester - " + semester);
+            }
+            
+            
+            
+            
         }
     }
 
-    // Simulate action after selecting Branch, Year, Semester, and Mid for Mid Details
+    // Submit Mid Details
     function submitMidDetails() {
         const branch = document.getElementById("midBranch").value;
         const year = document.getElementById("midYear").value;
@@ -314,23 +335,30 @@
             if (branch === "AIML" && year === "3" && semester === "1" && mid === "1") {
                 const googleSheetsUrl = "https://docs.google.com/spreadsheets/d/14xjHSk2D4SbdNaJX23FSdwql7igRt2b_20y5lzFMdjM/edit?gid=0#gid=0";
                 window.open(googleSheetsUrl, "_blank");
-            } else if (branch === "CSE" && year === "3" && semester === "1" && mid === "1") {
+            } else {
+                alert("You selected: Branch - " + branch + ", Year - " + year + ", Semester - " + semester + ", Mid - " + mid);
+            }
+            if (branch === "CSE" && year === "3" && semester === "1" && mid === "1") {
                 const googleSheetsUrl = "https://docs.google.com/spreadsheets/d/1uRNTxoniQcieTRF1RVS5BGGxPGmDemq7sbDv2WhlEjY/edit?gid=0#gid=0";
                 window.open(googleSheetsUrl, "_blank");
             } else {
                 alert("You selected: Branch - " + branch + ", Year - " + year + ", Semester - " + semester + ", Mid - " + mid);
             }
             
-            
             if (branch === "AIML" && year === "3" && semester === "1" && mid === "2") {
                 const googleSheetsUrl = "https://docs.google.com/spreadsheets/d/1oQlf4psLEvkl0551oeYKVTsWDSxpWYtjFSny5AP-cYw/edit?gid=0#gid=0";
                 window.open(googleSheetsUrl, "_blank");
-            } else if (branch === "CSE" && year === "3" && semester === "1" && mid === "2") {
+            } else {
+                alert("You selected: Branch - " + branch + ", Year - " + year + ", Semester - " + semester + ", Mid - " + mid);
+            }
+            if (branch === "CSE" && year === "3" && semester === "1" && mid === "2") {
                 const googleSheetsUrl = "https://docs.google.com/spreadsheets/d/1nashda6FI2YVTqageobfp7CMCqmPNiJOOrSmbA8c6Mk/edit?gid=0#gid=0";
                 window.open(googleSheetsUrl, "_blank");
             } else {
                 alert("You selected: Branch - " + branch + ", Year - " + year + ", Semester - " + semester + ", Mid - " + mid);
             }
+            
+            
         }
     }
 </script>
