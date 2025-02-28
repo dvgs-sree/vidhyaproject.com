@@ -262,6 +262,25 @@
         document.getElementById("semesterOptionsContainer").style.display = "none";
     }
 
+
+    function submitStudentDetail() {
+        const Branch = document.getElementById("branch").value;
+        const Year = document.getElementById("year").value;
+        
+        if(branch === "AIML" || year === "3rd"){
+          const googlesheeturl = "https://docs.google.com/spreadsheets/d/1UNWSCHUeJYVhkDWpRB0ryG1tKW5FX1DwIQZ7n1YFPE0/edit?gid=0#gid=0";
+        window.open(googlesheeturl, "_blank";)
+        }
+        else{
+              if(branch === "CSE" || year === "3rd"){
+          const googlesheeturl = "https://docs.google.com/spreadsheets/d/1dyrSR5c8n0EZM9MtrJhAMj9_6J_4d7SQzmogn2ci14o/edit?pli=1&gid=0#gid=0";
+           window.open(googlesheeturl, "_blank";)
+           } else{
+               alert("you selected : branch - " + branch + " , year -" +year)
+           }
+        }
+    }
+
     // Simulate action after selecting Branch, Year, and Semester for Semester Details
     function submitSemesterDetails() {
         const branch = document.getElementById("semesterBranch").value;
